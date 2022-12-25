@@ -10,7 +10,7 @@ using WSSendMessage.Settings;
 namespace WSSendMessage.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("Message")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -38,17 +38,20 @@ namespace WSSendMessage.Controllers
             .ToArray();
         }
 
-        [HttpPost(Name = "GetWeatherForecast")]
-        public void POST(string url)
+        [HttpPost(Name = "Send")]
+        public void POST([FromBody] SendPhoneMessageRequest data)
         {
+            if (data?.CellPhone == null || data?.ClientName == null || data?.UrlWS == null)
+                return;
+
             var accountSid = _sendGrid.AccountSid;
             var authToken = _sendGrid.AuthToken;
             TwilioClient.Init(accountSid, authToken);
 
             var messageOptions = new CreateMessageOptions(
-                new PhoneNumber("+593962746928"));
+                new PhoneNumber("+593979214297"));
             messageOptions.MessagingServiceSid = _sendGrid.MessagingServiceSid;
-            messageOptions.Body = url;
+            messageOptions.Body = $"{data.CellPhone} - {data.ClientName} - {data.UrlWS}";
 
             var message = MessageResource.Create(messageOptions);
             Console.WriteLine(message.Body);

@@ -4,6 +4,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.Configure<SendGridConfig>(x =>
+{
+    x.AccountSid = builder.Configuration["MessengerAutomataAccountSid"];
+    x.AuthToken = builder.Configuration["MessengerAutomataAuthToken"];
+    x.MessagingServiceSid = builder.Configuration["MessengerAutomataMessagingServiceSid"];
+});
+
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -19,12 +27,6 @@ if (app.Environment.IsDevelopment())
 
 }
 
-builder.Services.Configure<SendGridConfig>(x =>
-{
-    x.AccountSid = builder.Configuration["MessengerAutomata:AccountSid"];
-    x.AuthToken = builder.Configuration["MessengerAutomata:AuthToken"];
-    x.MessagingServiceSid = builder.Configuration["MessengerAutomata:MessagingServiceSid"];
-});
 
 
 app.UseHttpsRedirection();
