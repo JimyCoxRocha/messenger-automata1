@@ -1,8 +1,17 @@
 using WSSendMessage.Settings;
+using Azure.Identity;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+if (builder.Environment.IsProduction())
+{
+    builder.Configuration.AddAzureKeyVault(
+        new Uri($"https://automatakeys.vault.azure.net/"),
+        new DefaultAzureCredential());
+}
+
 
 builder.Services.Configure<SendGridConfig>(x =>
 {
