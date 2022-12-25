@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "pQYRFsgfnJKlpr21B4wHde995OQjYxZgOXg5g5Lvrq2g2sq1Hv9MbPq9tKlHLaJW2hzh9TOx6/tLAjpQO3+USQ==",
+  "dgSpecHash": "Orj0xPyIZVtmIGbS1xxG2kGlMRItzL2Uekh1s8e9EJi6oyOUpw8TXGf30/cwTb/M4fnlyIm6BrAnIHgamYFlWw==",
   "success": true,
   "projectFilePath": "C:\\Users\\terra\\Documents\\Celerity\\WhatsApp_Automata_Messages\\WSSendMessage\\WSSendMessage\\WSSendMessage.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\terra\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
+    "C:\\Users\\terra\\.nuget\\packages\\azure.core\\1.26.0\\azure.core.1.26.0.nupkg.sha512",
     "C:\\Users\\terra\\.nuget\\packages\\azure.extensions.aspnetcore.configuration.secrets\\1.2.2\\azure.extensions.aspnetcore.configuration.secrets.1.2.2.nupkg.sha512",
     "C:\\Users\\terra\\.nuget\\packages\\azure.identity\\1.8.0\\azure.identity.1.8.0.nupkg.sha512",
     "C:\\Users\\terra\\.nuget\\packages\\azure.security.keyvault.secrets\\4.2.0\\azure.security.keyvault.secrets.4.2.0.nupkg.sha512",
