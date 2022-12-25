@@ -49,7 +49,15 @@ namespace WSSendMessage.Controllers
                 var accountSid = _sendGrid.AccountSid;
                 var authToken = _sendGrid.AuthToken;
 
-                
+                TwilioClient.Init(accountSid, authToken);
+
+                var messageOptions = new CreateMessageOptions(
+                    new PhoneNumber("+593979214297"));
+                messageOptions.MessagingServiceSid = _sendGrid.MessagingServiceSid;
+                messageOptions.Body = $"{data.CellPhone} - {data.ClientName} - {data.UrlWS}";
+
+                var message = MessageResource.Create(messageOptions);
+                Console.WriteLine(message.Body);
                 return "Bien";
             }
             catch (Exception)
